@@ -23,7 +23,7 @@ function objToSql(ob) {
 
 const orm = {
   selectAll: (tableInput, cb) => {
-    let queryString = "SELECT * FROM" + tableInput + ";";
+    let queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;

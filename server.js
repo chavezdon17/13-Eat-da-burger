@@ -6,10 +6,12 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const expressHandle = require("express-handlebars");
-app.engine("handlebars", expressHandle({ defaultLayout: "default" }));
+var exphbs = require("express-handlebars");
 
-const routes = require("./controller/burgers_controller.js");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+const routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
 app.listen(PORT, function () {
